@@ -8,8 +8,8 @@ app.use(cors({
 
 }))
 
-app.get('/test', (req, res) => {
-    res.json({message: "succesfully sent the resposne"})
+app.get('/', (req, res) => {
+    res.send({message: "succesfully sent the resposne"})
 })
 
 app.listen(conectivty, () => {
