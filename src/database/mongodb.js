@@ -10,16 +10,11 @@ const client = new MongoClient(process.env.MONGO_STRING_CONNECTION, {
   }
 });
 
-async function run() {
+export async function runDB() {
   try {
     await client.connect();
-    let db = client.db('online_learning_platform');
-    let collections = await db.collection('courses').find().toArray();
-    
-    console.log(collections)
-  } finally {
-    await client.close();
+    return client
+  } catch (error) {
+    console.error(`An error has been occured: ${error}`)
   }
 }
-
-run()
