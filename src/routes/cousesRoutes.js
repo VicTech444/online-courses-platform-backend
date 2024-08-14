@@ -3,4 +3,5 @@ import { coursesController } from "../controller/coursesController.js";
 
 export const coursesRouter = e.Router();
 
-coursesRouter.get('/showAllCourses', coursesController.getAllCourses)
+coursesRouter.get('/showAllCourses', coursesController.getAllCourses);
+coursesRouter.post('/specificCourse', coursesController.getCourse);

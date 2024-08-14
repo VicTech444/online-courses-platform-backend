@@ -10,4 +10,15 @@ export class coursesController {
 
         res.status(200).send({courses: response});
     }
+
+    static async getCourse (req, res) {
+        let {courseName} = req.body;
+        let response = await coursesModel.getCourse(courseName);
+
+        if (!response) {
+            res.status(500).send({ error: 'Error connecting to the database' });
+        }
+
+        res.status(200).send({courses: response});
+    }
 }
