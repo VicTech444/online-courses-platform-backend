@@ -1,4 +1,5 @@
 import { runDB } from "../database/mongodb.js";
+import { generateSafePassword } from "../helpers/generateSafePassword.js";
 
 export class signModel {
     static async signUser (userData) {
@@ -12,10 +13,12 @@ export class signModel {
 
           if (emailValidation) throw new Error('Email already exists');
 
+          let safePassword = await generateSafePassword(password)
+
           let newUser = {
             name: `${firstName} ${lastName}`,
             email,
-            password,
+            password: safePassword,
             coursesEnrolled: [],
             createdAt: new Date()
           }
