@@ -9,8 +9,7 @@ export class coursesModel {
           let collections = await db.collection('courses').find().toArray();
           return collections
         } catch (error) {
-          console.error('Error connecting to the database:', error);
-          return false;
+          return error
         } finally {
           if (mongoClient) {
             await mongoClient.close(true);
