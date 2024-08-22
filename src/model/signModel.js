@@ -2,9 +2,8 @@ import { runDB } from "../database/mongodb.js";
 import { generateSafePassword } from "../helpers/generateSafePassword.js";
 
 export class signModel {
-    static async signUser (userData) {
+    static async signUser ({firstName, lastName, email, password}) {
         let mongoClient;
-        let {firstName, lastName, email, password} = userData;
 
         try {
           mongoClient = await runDB();
