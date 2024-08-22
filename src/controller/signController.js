@@ -11,7 +11,7 @@ export class signController {
 
         let response = await signModel.signUser(credentialValidate.data);
 
-        if (response instanceof Error) res.status(400).send({ error: response.message});
+        if (response instanceof Error) return res.status(400).send({ error: response.message});
 
         res.status(200).send({success: "User created succesfully"})
     }
