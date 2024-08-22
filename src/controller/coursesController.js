@@ -5,7 +5,7 @@ export class coursesController {
         let response = await coursesModel.getAllCourses();
 
         if (!response) {
-            res.status(500).send({ error: 'Error connecting to the database' });
+            return res.status(500).send({ error: 'Error connecting to the database' });
         }
 
         res.status(200).send({courses: response});
@@ -16,7 +16,7 @@ export class coursesController {
         let response = await coursesModel.getCourse(courseName);
 
         if (!response) {
-            res.status(500).send({ error: 'Error connecting to the database' });
+            return res.status(500).send({ error: 'Error connecting to the database' });
         }
 
         res.status(200).send({courses: response});
