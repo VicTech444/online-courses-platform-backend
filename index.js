@@ -10,6 +10,7 @@ let conectivty = process.env.PORT || 3001
 
 app.use(cors({
 credentials: true,
+origin: true
 }))
 app.use(e.json())
 
