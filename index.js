@@ -9,9 +9,12 @@ let app = e();
 let conectivty = process.env.PORT || 3001
 
 app.use(cors({
-credentials: true,
-origin: true
-}))
+    origin: ['http://localhost:3000', 'https://online-courses-platform.vercel.app'],
+    credentials: true, 
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+}));
+
 app.use(e.json())
 
 app.use('/courses', coursesRouter);
