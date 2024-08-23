@@ -9,7 +9,7 @@ let app = e();
 let conectivty = process.env.PORT || 3001
 
 app.use(cors({
-
+credentials: true,
 }))
 app.use(e.json())
 

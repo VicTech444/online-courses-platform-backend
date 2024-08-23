@@ -17,7 +17,7 @@ export class loginModel {
             let passwordValidation = await validatePassword(password, userInfo.password);
 
             if (!passwordValidation) throw new Error('Incorrect email or password 2');
-
+            
             let payload = {
                 username: userInfo.name,
                 email: userInfo.email
