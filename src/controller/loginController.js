@@ -16,7 +16,7 @@ export class loginController {
         res.cookie('login', response, {
             maxAge: 1000 * 60 * 60 * 24,
             path: '/',
-            httpOnly: isProduction,
+            httpOnly: false,
             secure: true,
             sameSite: 'none'
         }).json({message: "Data sent succesfully"});
