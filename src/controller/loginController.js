@@ -8,7 +8,7 @@ export class loginController {
         if (!credentialValidate.success) return res.status(400).json({invalidRequest: credentialValidate.error.issues[0].message})
 
         let response = await loginModel.logUser(credentialValidate.data)
-        console.log(response)
+
         if (response instanceof Error) return res.status(400).json({error: response.message})
 
         const isProduction = process.env.NODE_ENV === "production";
