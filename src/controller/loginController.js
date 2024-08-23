@@ -17,7 +17,8 @@ export class loginController {
             maxAge: 1000 * 60 * 60 * 24,
             path: '/',
             httpOnly: isProduction,
-            secure: isProduction
+            secure: true,
+            sameSite: 'none'
         }).json({message: "Data sent succesfully"});
     }
 }
