@@ -13,11 +13,13 @@ export class loginController {
 
         const isProduction = process.env.NODE_ENV === "production";
 
-        res.cookie('login', response, {
+        // false = development
+        
+        res.cookie('loginOnlineCourse', response, {
             maxAge: 1000 * 60 * 60 * 24,
             path: '/',
-            httpOnly: false,
-            secure: true,
+            httpOnly: isProduction,
+            secure: isProduction,
             sameSite: 'none'
         }).json({message: "Data sent succesfully"});
     }
